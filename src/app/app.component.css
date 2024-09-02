@@ -12,6 +12,7 @@ main {
   margin: 0;
   padding: 0;
   display: flex;
+  flex-wrap: wrap; /* Allow buttons to wrap to the next line */
   gap: 0.5rem;
   overflow: auto;
 }
@@ -30,11 +31,21 @@ main {
   }
 
   #users {
-    flex-direction: column;
+    flex-direction: row; /* Ensure buttons are in a row on larger screens */
   }
 
   #fallback {
     font-size: 1.5rem;
     text-align: left;
+  }
+}
+
+@media (max-width: 767px) {
+  main {
+    max-width: 100%; /* Adjust for smaller screens */
+  }
+
+  #users {
+    justify-content: center; /* Center the buttons on smaller screens */
   }
 }
