@@ -1,6 +1,17 @@
 {
   "name": "my-angular-app",
   "version": "0.0.0",
+  "private": true,
+  "description": "this is my angular application a single page application showing you my portfolios through a galery pages ",
+  "keywords": [
+    "my",
+    "angular",
+    "app"
+  ],
+  "license": "ISC",
+  "author": "Bernard Palabasan",
+  "type": "commonjs",
+  "main": "index.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -8,7 +19,6 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
-  "private": true,
   "dependencies": {
     "@angular/common": "^19.2.0",
     "@angular/compiler": "^19.2.0",
