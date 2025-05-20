@@ -1,0 +1,51 @@
+main {
+  width: 90%;
+  max-width: 50rem;
+  margin: 2.5rem auto;
+  display: grid;
+  grid-auto-flow: row;
+  gap: 2rem;
+}
+
+#users {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap; /* Allow buttons to wrap to the next line */
+  gap: 0.5rem;
+  overflow: auto;
+}
+
+#fallback {
+  font-weight: bold;
+  font-size: 1.15rem;
+  margin: 0;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  main {
+    margin: 4rem auto;
+    grid-template-columns: 1fr 3fr;
+  }
+
+  #users {
+    flex-direction: row; /* Ensure buttons are in a row on larger screens */
+  }
+
+  #fallback {
+    font-size: 1.5rem;
+    text-align: left;
+  }
+}
+
+@media (max-width: 767px) {
+  main {
+    max-width: 100%; /* Adjust for smaller screens */
+  }
+
+  #users {
+    justify-content: center; /* Center the buttons on smaller screens */
+  }
+}
