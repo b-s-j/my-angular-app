@@ -1,0 +1,293 @@
+/* General Styles */
+html, body {
+    scroll-behavior: smooth; /* Enables smooth scrolling for anchor links if JS fails */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Primary background */
+    color: #333; /* Text color */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Animation Classes */
+.hidden-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: opacity, transform; /* Optimize for animations */
+}
+
+.visible-on-scroll {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hero Section Text Animation */
+#hero h2 {
+    animation: fadeInHeroText 1.5s 0.5s ease-in-out forwards; /* Forwards keeps it at 100% opacity */
+    opacity: 0; /* Start hidden */
+}
+
+@keyframes fadeInHeroText {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Color Palette */
+:root {
+    --header-footer-bg: #2c3e50; /* Dark gray for header/footer */
+    --accent-color: #1abc9c; /* Teal for accents */
+    --card-bg: #ffffff;
+}
+
+/* Header & Navigation */
+header {
+    background-color: var(--header-footer-bg);
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 0.5rem;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+header nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+/* Sections */
+section {
+    padding: 2rem;
+    text-align: center;
+}
+
+/* Hero Section */
+#hero {
+    background-color: #fff; /* Slightly different or keep primary for contrast */
+    padding: 3rem 1rem;
+}
+
+#hero h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--header-footer-bg);
+    /* opacity: 0; Will be handled by JS if that route is chosen, or CSS animation */
+}
+
+#hero p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+#hero button {
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#hero button:hover {
+    background-color: #16a085; /* Darker shade of accent color */
+}
+
+/* About Section */
+#about ul {
+    list-style: disc;
+    text-align: left;
+    display: inline-block; /* Center the list */
+    margin-top: 1rem;
+}
+
+#about ul li {
+    margin-bottom: 0.5rem;
+}
+
+/* Projects Section */
+#projects {
+    background-color: var(--primary-bg); /* Or keep it white if sections are distinct */
+}
+
+#projects h2 {
+    margin-bottom: 2rem;
+}
+
+#projects > div { /* Direct div children are project cards */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1.5rem;
+}
+
+#projects > div > div { /* Individual project card */
+    background-color: var(--card-bg);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    width: calc(33.333% - 2rem); /* Adjust for gap, roughly 3 cards per row */
+    min-width: 280px; /* Minimum width before stacking */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: left;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* For hover effect */
+}
+
+#projects > div > div:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+#projects > div > div h3 {
+    color: var(--header-footer-bg);
+    margin-top: 0;
+}
+
+/* Contact Form */
+#contact form {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: left;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#contact form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+#contact form input[type="text"],
+#contact form input[type="email"],
+#contact form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+    transition: border-color 0.3s ease; /* For error state */
+}
+
+#contact form input.input-error,
+#contact form textarea.input-error {
+    border-color: #e74c3c; /* Red border for errors */
+    background-color: #fdd; /* Light red background for errors */
+}
+
+#contact form input[type="submit"] {
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    display: block;
+    width: auto;
+    margin: 0 auto; /* Center button */
+}
+
+#contact form input[type="submit"]:hover {
+    background-color: #16a085; /* Darker shade */
+}
+
+#contact p { /* Social media links */
+    margin-top: 2rem;
+}
+
+#contact p a {
+    color: var(--accent-color);
+    text-decoration: none;
+    margin: 0 0.5rem;
+}
+
+#contact p a:hover {
+    text-decoration: underline;
+}
+
+
+/* Footer */
+footer {
+    background-color: var(--header-footer-bg);
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 2rem; /* Give some space before footer */
+}
+
+/* Basic Responsiveness (Media Queries) */
+@media (max-width: 768px) {
+    header nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    #projects > div { /* Ensure flex container for cards also wraps correctly */
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #projects > div > div { /* Project cards stack */
+        width: 80%; /* Wider cards when stacked */
+        max-width: 400px; /* Max width for stacked cards */
+        margin-bottom: 1.5rem; /* Space between stacked cards */
+    }
+    
+    #hero h2 {
+        font-size: 1.8rem;
+    }
+    #hero p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    section {
+        padding: 1.5rem 1rem;
+    }
+
+    #hero {
+        padding: 2rem 1rem;
+    }
+
+    #projects > div > div { /* Project cards stack vertically */
+        width: 95%; /* Even wider for very small screens */
+    }
+
+    #contact form {
+        padding: 1.5rem;
+    }
+}
